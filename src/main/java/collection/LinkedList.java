@@ -193,6 +193,10 @@ public class LinkedList<T extends Comparable> {
 
     previousElement.setNextElement(deletedElement.getNextElement());
 
+    if(deletedElement == lastElement) {
+      lastElement = previousElement;
+    }
+
     this.elementsCount--;
 
     return deletedElement.getValue();
@@ -265,6 +269,14 @@ public class LinkedList<T extends Comparable> {
     }
 
     return array;
+  }
+
+  public Node<T> getFirstElement() {
+    return firstElement;
+  }
+
+  public Node<T> getLastElement() {
+    return lastElement;
   }
 
   @Override
